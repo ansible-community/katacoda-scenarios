@@ -1,8 +1,8 @@
-This should be split into multiple steps
+FIXME Once we are happy with this scenario it will be split into multiple steps.
 
 ## Task
 
-Install ansible-base(so we get ansible-test)
+Install the `ansible-base` package (which includes `ansible-playbook` and `ansible-test`)
 
 `pip install ansible-base`{{execute}}
 
@@ -21,27 +21,43 @@ ansible_collections/
 ...
 ```
 
-Create the directory structure so `ansible` and `ansible-test` knows where what the collection 
+For example:
+```
+ansible_collections/
+├── community
+│   ├── general
+│   ├── mysql
+│   └── zabbix
+├── ansible
+│   ├── posix
+│   └── netcommon
+├── vmware
+│   └── vmware_rest
+├── ...
+...
+```
+
+Create the directory structure so `ansible` and `ansible-test` knows which collection we are using
 
 `mkdir -p ansible_collections/ansible`{{execute}}
 `cd ansible_collections/ansible`{{execute}}
 
-Clone the `ansible.posix` repository, notice we are specifying the destination is posix (rather than the default community.posix) to comply with what expects `ansible`:
+Clone the `ansible.posix` repository, notice we are specifying the destination is `posix` (rather than the default `community.posix`) to comply with what expects `ansible`:
 
 `git clone https://github.com/ansible-collections/ansible.posix.git posix`{{execute}}
 
 `cd posix`{{execute}}
 
-`git checkout 06efaeb108775ec339cdb9eee56a3b34b0ffd076`{{execute}}
+`git checkout ci_example`{{execute}}
 
 `ls`{{execute}}
 
-Run the sanity checks using a docker image and see there is a deprecation warning for plugin callback skippy.
+Run the sanity checks using a docker image and see there is a `parameter-type-not-in-doc` error for the acl module (`plugins/modules/acl.py`).
 `ansible-test sanity --docker`{{execute}}
 
-Now fix the the deprecation by editing file `plugins/callback/skippy.py`.
-
-On line 17 replace `removed_in: '2.11'` by `removed_at_date: 2022-06-01` because `removed_in` is not valid in ansible_collections
+Now add the type for the `use_nfsv4_acls` parameter in the documentation for the by editing file `plugins/modules/acl.py`.
+w
+Add a new line between existing 74 & 75 `    type: bool`
 
 Run again the sanity check to ensure the warning disappeared after the modification.
 `ansible-test sanity --docker`{{execute}}
@@ -49,16 +65,16 @@ Run again the sanity check to ensure the warning disappeared after the modificat
 Now add a changelog fragment file that describe the change performed, this file that will be included in the changelog file in the next release to provide to users of this collections changes done.
 
 ```
-cat > changelogs/fragments/skippy_deprecation.yml << EOF
+cat > changelogs/fragments/acl_docs.yml << EOF
 ---
 minor_changes:
-  - skippy - fixed the deprecation warning (by date) for skippy callback plugin
+  - acl - fixed the module docs for the acl module
 EOF```{{execute}}
 
 Finally add the two files to git staging and commit the modification
 
 ```
-git add changelogs/fragments/skippy_deprecation.yml plugins/callback/skippy.py
+git add changelogs/fragments/acl_docs.yml plugins/modules/aci.py
 git commit
 ```{{execute}}
 
