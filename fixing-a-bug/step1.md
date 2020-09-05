@@ -39,6 +39,9 @@ ansible_collections/
 Create the directory structure so `ansible` and `ansible-test` knows which collection we are using
 
 `mkdir -p ansible_collections/community`{{execute}}
+
+Go into the newly created directory:
+
 `cd ansible_collections/community`{{execute}}
 
 Clone the `community.mysql` repository, notice we are specifying the destination is `mysql` (rather than the default `community.mysql`) to comply with what ansible-test expects:
@@ -59,7 +62,7 @@ Run the sanity checks using a docker image and see there is a `parameter-type-no
 
 Now add the type for the `append_privs` parameter in the documentation for the by editing file `plugins/modules/mysql_user.py`.
 
-Add a new line between existing 63 & 63 `    type: bool`
+Add a new line between existing 62 & 63 `    type: bool`
 
 Run again the sanity check to ensure the warning disappeared after the modification.
 `ansible-test sanity --docker`{{execute}}
@@ -77,7 +80,7 @@ Finally add the two files to git staging and commit the modification
 
 ```
 git add changelogs/fragments/mysql_user_docs.yml plugins/modules/mysql_user.py
-git commit .
+git commit -m "Fix mysql_user documentation" .
 ```{{execute}}
 
 >>Q1: Why do we use the directory structure `ansible_collections/community/mysql` <<
