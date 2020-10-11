@@ -29,7 +29,9 @@ ansible_collections/
 ...
 ```
 
-Create the directory structure so `ansible` and `ansible-test` knows which collection we are using
+## Setup the directory structure
+
+Create the directory structure so `ansible` and `ansible-test` knows which collection we are using.
 
 `mkdir -p ansible_collections/community`{{execute}}
 

@@ -6,6 +6,10 @@
   "details": {
     "steps": [
       {
+        "title": "Instructions",
+        "text": "instructions.md"
+      },
+      {
         "title": "Step 1",
         "text": "step1.md"
       },
@@ -35,7 +39,7 @@
     }
   },
   "environment": {
-    "uilayout": "terminal"
+    "uilayout": "editor-terminal"
   },
   "backend": {
     "imageid": "ubuntu:1804"
