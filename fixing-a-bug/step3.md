@@ -21,13 +21,15 @@ From the output of ansible-test, see there is a `parameter-type-not-in-doc` erro
 
 Now add the type for the `append_privs` parameter in the documentation for the by editing file `plugins/modules/mysql_user.py`.
 
-`plugins/modules/mysql_user.py`{{open}}
+`/root/ansible_collections/community/mysql/plugins/modules/mysql_user.py`{{open}}
 
 Add a new line between existing 62 & 63 `    type: bool`
+
+Once you've added the line, click the `x` on the top of the file name to edit the editor and save `mysql_user.py`
 
 ### Validate the fix
 
 Run again the sanity check to ensure the warning disappeared after the modification.
 `ansible-test sanity --docker`{{execute}}
 
-If the test fails check indentation.
+If the test fails, reopen the file with the above command

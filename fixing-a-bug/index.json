@@ -39,6 +39,7 @@
     }
   },
   "environment": {
+    "hideHiddenFiles": true,
     "uilayout": "editor-terminal"
   },
   "backend": {
