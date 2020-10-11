@@ -23,7 +23,17 @@ Now add the type for the `append_privs` parameter in the documentation for the b
 
 `ansible_collections/community/mysql/plugins/modules/mysql_user.py`{{open}}
 
-Add a new line between existing 62 & 63 `    type: bool`
+We can see from line 1004 in that file `append_privs=dict(type='bool', default=False),`, so the documentation should say this is a `bool` (boolean).
+
+Add a new line between existing 62 & 63 `    type: bool` so the entry looks like:
+```yaml
+  append_privs:
+    description:
+      - Append the privileges defined by priv to the existing ones for this
+        user instead of overwriting existing ones.
+    default: no
+    type: bool
+```
 
 Once you've added the line, click the `x` on the top of the file name to edit the editor and save `mysql_user.py`
 
