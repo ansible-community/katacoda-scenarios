@@ -42,4 +42,7 @@ Once you've added the line, click the `x` on the top of the file name to edit th
 Run again the sanity check to ensure the warning disappeared after the modification.
 `ansible-test sanity --docker`{{execute}}
 
+You can also run sanity tests on a specific file to make it faster.
+`ansible-test sanity plugins/modules/mysql_user.py --docker`{{execute}}
+
 If the test fails, reopen the file with the above command
