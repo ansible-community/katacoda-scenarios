@@ -7,13 +7,13 @@ ansible-test supports three types of tests:
 * Unit
 * Integration
 
-These tests are run automatically when you create a Pull Request (PR). We can, and should run them locally before before commit code.
+Although these tests may run automatically when sending a pull request (PR), we should run them locally to catch errors before sending new commits for review.
 
 For this example we will be running the Sanity Tests, by doing:
 
 `ansible-test sanity --docker`{{execute}}
 
-We prefer to run the tests in Docker as it ensure all test dependencies are installed, and nothing pollutes the host operating system.
+We prefer to run the tests in Docker as it ensures all test dependencies are installed, and nothing pollutes the host operating system.
 
 From the output of ansible-test, see there is a `parameter-type-not-in-doc` error for the `mysql_user` module (`plugins/modules/mysql_user.py`).
 
