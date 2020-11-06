@@ -4,7 +4,7 @@ To use Ansible we need to have it installed. This will also install any required
 
 Install the `ansible-base` package (which includes `ansible-playbook` and `ansible-test`)
 
-`pip install ansible-base`{{execute}}
+`pip install --user ansible-base`{{execute}}
 
 Ansible 2.10 is the first that properly supports Collections:
 
