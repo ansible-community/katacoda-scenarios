@@ -8,3 +8,6 @@ git config --global user.name "Your Name"
 # conflicts when we pip install
 apt-get -y remove ansible ansible-base
 touch /tmp/background-finished
+
+# Add ~/.local/bin to PATH so "pip install --user" works
+echo "export PATH=\$PATH:~/.local/bin" >> ~/.bashrc
