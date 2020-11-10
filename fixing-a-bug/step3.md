@@ -1,6 +1,6 @@
 ## ansible-test
 
-`ansible-test` is distributed as part of the ``ansible-base`` (and therefore ``ansible``) package.
+`ansible-test` is distributed as part of the `ansible-base` (and therefore `ansible`) package.
 
 ansible-test supports three types of tests:
 * Sanity
