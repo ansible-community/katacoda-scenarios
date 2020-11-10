@@ -19,7 +19,7 @@ From the output of `ansible-test`, see there is a `parameter-type-not-in-doc` er
 
 ### Fix mysql_user.py
 
-Now add the type for the `append_privs` parameter in the documentation for the by editing file `plugins/modules/mysql_user.py`.
+Now add the type for the `append_privs` parameter, in the documentation for the `mysql_user` module, by editing the `plugins/modules/mysql_user.py` file.
 
 `ansible_collections/community/mysql/plugins/modules/mysql_user.py`{{open}}
 
