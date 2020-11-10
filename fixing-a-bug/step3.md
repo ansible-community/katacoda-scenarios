@@ -1,8 +1,8 @@
 ## ansible-test
 
-`ansible-test` is distributed as part of the ``ansible-base`` (and therefore ``ansible``) package.
+`ansible-test` is distributed as part of the `ansible-base` (and therefore `ansible`) package.
 
-ansible-test supports three types of tests:
+`ansible-test` supports three types of tests:
 * Sanity
 * Unit
 * Integration
@@ -15,11 +15,11 @@ For this example we will be running the Sanity Tests, by doing:
 
 We prefer to run the tests in Docker as it ensures all test dependencies are installed, and nothing pollutes the host operating system.
 
-From the output of ansible-test, see there is a `parameter-type-not-in-doc` error for the `mysql_user` module (`plugins/modules/mysql_user.py`).
+From the output of `ansible-test`, see there is a `parameter-type-not-in-doc` error for the `mysql_user` module (`plugins/modules/mysql_user.py`).
 
 ### Fix mysql_user.py
 
-Now add the type for the `append_privs` parameter in the documentation for the by editing file `plugins/modules/mysql_user.py`.
+Now add the type for the `append_privs` parameter, in the documentation for the `mysql_user` module, by editing the `plugins/modules/mysql_user.py` file.
 
 `ansible_collections/community/mysql/plugins/modules/mysql_user.py`{{open}}
 
