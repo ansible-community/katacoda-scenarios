@@ -16,4 +16,4 @@ git add changelogs/fragments/mysql_user_docs.yml plugins/modules/mysql_user.py
 git commit -m "Fix mysql_user documentation" .
 ```{{execute}}
 
-More details regarding Changelog Fragment can be found [here](https://docs.ansible.com/ansible/latest/community/development_process.html#changelogs).
+More details regarding changelog fragments can be found in the [documentation](https://docs.ansible.com/ansible/latest/community/development_process.html#changelogs).
