@@ -41,7 +41,7 @@ Go into the newly created directory:
 
 `cd ansible_collections/community`{{execute}}
 
-For this training, we’ll use the existing `community.mysql` collection from Ansible GitHub.
+For this training, we’ll use the existing `community.mysql` collection available on GitHub.
 
 Clone the `community.mysql` repository, notice we are specifying the destination is `mysql` (rather than the default `community.mysql`) to comply with what ansible-test expects:
 
@@ -54,4 +54,3 @@ Checkout to `ci_example` branch:
 `git checkout ci_example`{{execute}}
 
 `ls`{{execute}}
-
