@@ -15,7 +15,15 @@ For this example we will be running the Sanity Tests, by doing:
 
 We prefer to run the tests in Docker as it ensures all test dependencies are installed, and nothing pollutes the host operating system.
 
-From the output of `ansible-test`, see there is a `parameter-type-not-in-doc` error for the `mysql_user` module (`plugins/modules/mysql_user.py`).
+From the output of `ansible-test`, see there is a `parameter-type-not-in-doc` error for the `mysql_user` module (`plugins/modules/mysql_user.py`) like below:
+
+```
+ERROR: Found 1 validate-modules issue(s) which need to be resolved:
+ERROR: plugins/modules/mysql_user.py:0:0: parameter-type-not-in-doc: Argument 'append_privs' inargument_spec defines type as 'bool' but documentation doesn't define type
+See documentation for help: https://docs.ansible.com/ansible/2.10/dev_guide/testing/sanity/validate-modules.html
+Running sanity test 'yamllint' with Python 3.6
+ERROR: The 1 sanity test(s) listed below (out of 45) failed. See error output above for details.
+```
 
 ### Fix mysql_user.py
 
@@ -45,4 +53,4 @@ Run again the sanity check to ensure the warning disappeared after the modificat
 You can also run sanity tests on a specific file to make it faster.
 `ansible-test sanity plugins/modules/mysql_user.py --docker`{{execute}}
 
-If the test fails, reopen the file with the above command
+If the test fails, reopen the file with the above command.
